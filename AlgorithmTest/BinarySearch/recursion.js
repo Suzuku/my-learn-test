@@ -14,6 +14,7 @@ function BinarySearch(arr,index,target) {
         if (arr.length > 1) {
             // 考虑传Index进递归 不然无法获取到基于总数组的index
             BinarySearch(arr.slice(0, midIndex), index,target);
+            // 因为是有序表 考虑这里判断下low和high与目标值的大小关系  可以少递归
             BinarySearch(arr.slice(midIndex, arr.length), index+midIndex,target);
         }
     }
