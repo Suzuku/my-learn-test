@@ -1,4 +1,4 @@
-// 交换排序
+// 选择排序
 function swap(arr) {
     // 先来一趟
     console.log(arr.length);

@@ -1,8 +1,9 @@
 // 使用方法，将代码拷贝至chrome的console的Snippets上 在缺陷详情页，运行即可，支持定制文案
 
 // 意见
-HANDLE_SUGGESTION = '经过排查，确定为';
-
+HANDLE_SUGGESTION = '经过排查，确定为显示问题，已修复';
+// 是否直接提交
+SUBMIT = false;
 // 引入活动，需要填页面列表里规定的值 引入原因暂不支持定制 后续加上
 ACTIVITY = '编码';
 
@@ -53,6 +54,11 @@ function moduleWrite() {
     childHtml.document.getElementById('tabValueList').appendChild(option); //获取iframe里面id为num的input的value
     document.getElementsByClassName('layui-layer-btn0')[0].click();
 }
+
+function submit() {
+    document.getElementsByClassName('approve')[0].click();
+    document.getElementsByClassName('messager-button')[0].childNodes[0].click();
+}
 setTimeout(() => {
     moduleWrite();
     document.getElementById('reason').click();
@@ -60,3 +66,8 @@ setTimeout(() => {
 setTimeout(() => {
     document.getElementsByClassName('jbox-button-focus')[0].click();
 }, TIMEOUT + 500);
+if (SUBMIT) {
+    setTimeout(() => {
+        submit();
+    }, TIMEOUT + 500 + 500);
+}

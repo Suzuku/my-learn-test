@@ -1,4 +1,5 @@
 // Binary Search 二分查找 要求有序表  时间复杂度O(log2n)
+// 递归不推荐传裁剪后的数组 因为不好找index得传index进去叠加 很麻烦 不如low high直观
 let INDEX = -1;
 let end=false
 function BinarySearch(arr,index,target) {
