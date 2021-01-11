@@ -5,17 +5,23 @@
 function insertSort(arr) {
     let result = [];
     for (let i = 0; i < arr.length; i++) {
-        if (result.length !== 0 && arr[i] > result[0] && arr[i] < result[result.length - 1]) {
-            for (let j = 0; j < result.length - 1; j++) {
-                if (arr[i] >= result[j] && arr[i] <= result[j + 1]) {
+        let tempArr = [];
+        if (result.length !== 0 && arr[i] < result[result.length - 1]) {
+            if (arr[i] < result[0]) {
+                tempArr.push(arr[i]);
+            }
+            for (let j = 0; j < result.length; j++) {
+                tempArr.push(result[j]);
+                if (result[j + 1] && arr[i] > result[j] && arr[i] <= result[j + 1]) {
+                    tempArr.push(arr[i]);
                 }
             }
-        } else if (result.length !== 0 && arr[i] <= result[0]) {
+            result = tempArr;
         } else {
             result.push(arr[i]);
         }
         console.log(result);
     }
-    console.log("last", result);
+    console.log('last', result);
 }
-insertSort([2, 5, 3, 7, 9, 1, 15]);
+insertSort([7,2,6,4,8,1,3,2,3,7,10,46,74,27]);
