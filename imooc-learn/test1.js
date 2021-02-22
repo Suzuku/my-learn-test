@@ -1,7 +1,7 @@
 class Person{
     constructor(name){
         this.name=name;
-        console.log(this);
+        console.log();
     }
     say(){
         console.log(233);

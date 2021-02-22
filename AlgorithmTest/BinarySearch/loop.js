@@ -1,4 +1,4 @@
-// 二分查找 循环版本
+// 二分查找 循环版本 时间复杂度o(logn)
 
 function BinarySearch(arr, target) {
     let low = 0;

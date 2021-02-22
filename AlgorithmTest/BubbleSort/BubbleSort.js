@@ -1,4 +1,4 @@
-// 冒泡排序
+// 冒泡排序 时间复杂度o(n2)
 function bubble(arr){
     for(let i=0;i<arr.length;i++){
         for(let j=0;j<arr.length;j++){
