@@ -23,6 +23,10 @@ async function promiseTest2(){
     })
 }
 
-Promise.prototype.myAll=function(promiseList){
-    console.log(promiseList);
+Promise.myAll=function(promiseList){
+    return new Promise((resolve,reject)=>{
+        
+    })
 }
+
+Promise.myAll([promiseTest1,promiseTest2])
