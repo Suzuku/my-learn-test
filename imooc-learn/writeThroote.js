@@ -2,27 +2,26 @@
  
 function myThrottle(fn,interval){
     let bindTime=0
-    return function(){
+    return function(...args){
         let self=this
-        let args=arguments
         let currentTime=Date.now()
         if(currentTime-bindTime>=interval){
             bindTime=currentTime
-            fn.call(self)
+            fn.call(self,...args)
         }
     }
 }
 
-function login(){
-    console.log(1);
+function login(params){
+    console.log(params);
 }
 
 const test=myThrottle(login,1000)
-test()
-test()
-test()
-test()
+test(223)
+test(223)
+test(223)
+test(223)
 
 setTimeout(() => {
-    test()
+    test(223)
 }, 2000);
