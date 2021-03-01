@@ -1,51 +1,35 @@
 // 快速排序
-function quick(arr) {
-    // 先来一趟
-    if (arr.length > 1) {
-        let i = 0;
-        let j = arr.length - 1;
-        let key = arr[0];
-        while (i < j) {
-            for (; j > i; j--) {
-                if (arr[j] < key) {
-                    let temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                    break;
-                }
-            }
-            for (; i < j; i++) {
-                if (arr[i] > key) {
-                    let temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
-                    break;
-                }
-            }
-            console.log(i, j);
-        }
-        console.log(arr);
-        // 下面以一趟递归为基准 开始分而治之 递归
-        quick(arr.slice(0, i));
-        quick(arr.slice(i + 1, arr.length));
-
-        console.log("last arr", arr);
-    }
-}
-
-quick([49, 38, 65, 97, 76, 13, 27, 49]);
-
-
-
 /* 
 49, 38, 65, 97, 76, 13, 27, 49
 key=49
 
-27<49 ->27, 38, 65, 97, 76, 13, 27, 49
-65>49 ->  27, 38, 65, 97, 76, 13, 65, 49
+27<49 -> 27, 38, 65, 97, 76, 13, 27, 49
+65>49 > 27, 38, 65, 97, 76, 13, 65, 49
 13<49 -> 27, 38, 13, 97, 76, 13, 65, 49
-97>49 ->27, 38, 13, 97, 76, 97, 65, 49
+97>49 -> 27, 38, 13, 97, 76, 97, 65, 49
 
-49 38 65 13 76 49,97,65
-
+low=high=97 赋值 为49 一趟排序完成
+27, 38, 13, 49, 76, 97, 65, 49
 */
+function quick(arr, low, high) {
+    if (low >= 0 && low < high) {
+        let key = arr[low]
+        let i = low
+        let j = high
+        while (i < j) {
+            for (; i < j && arr[j] >= key; j--) {}
+            // 此时arr[j]是<key的  故将high的值赋值给low
+            arr[i] = arr[j]
+            for (; i < j && arr[i] <= key; i++) {}
+            // 此时arr[i]是>key的  故将low的值赋值给high
+            arr[j] = arr[i]
+        }
+        // 此时low=j 所指的位置即为该趟的索引 赋值为key
+        arr[i] = key
+        quick(arr, 0, low - 1)
+        quick(arr, low + 1, high)
+        return arr
+    }
+}
+let data = [49, 38, 65, 97, 76, 13, 27, 49]
+console.log(quick(data, 0, data.length - 1))
