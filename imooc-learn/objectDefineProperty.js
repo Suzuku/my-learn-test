@@ -13,7 +13,8 @@ Object.assign()拷贝的属性是有限制的，只拷贝源对象的自身属�
 let arrList=Object.create(obj.arr);
 Object.defineProperty(obj, 'arr', {
     get() {
-        return arrList;
+        console.log('obj.arr');
+        return arrList;    
     },
     set(newValue) {
         arrList=[...newValue]
@@ -23,6 +24,7 @@ Object.defineProperty(obj, 'arr', {
 
 Object.defineProperty(obj, 'a', {
     get() {
+        console.log('obj.a');
         return obj.a;
     },
     set(newValue) {
