@@ -32,3 +32,25 @@ console.log(user.password)
 console.log(user._password)
 user.login()
 
+const User1 = function() {
+    // 定义私有变量_password
+    let _password
+
+    class User{
+        constructor(name,password){
+            this.username=name
+            _password=password
+        }
+        login(){
+            console.log(this.username, _password)
+        }
+    }
+    return User
+}
+let user2=User1()
+let user3 = new user2('zhangsan','233')
+
+console.log(user3.username)
+console.log(user3.password)
+console.log(user3._password)
+user3.login()
