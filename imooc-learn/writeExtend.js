@@ -11,12 +11,14 @@ Person.prototype.sayHello=function(){
 let person=new Person('xiaoMing',233)
 person.sayName=33
 
-// 第一种 通过原型链继承 缺点 子实例会共享父类实例  父类实例修改 子实例也会变 ---实际上多个子实例间也会影响 比如b1改了继承的属性值  b2的那个也会变
+// 第一种 通过原型链继承 缺点  主要是没法传参 子实例会共享父类实例  父类实例修改 子实例也会变 ---实际上多个子实例间也会影响 比如b1改了继承的属性值  b2的那个也会变
 function Ming(age){
     this.age=age
 }
-Ming.prototype=person
+Ming.prototype=new Person('xiaoMing',444)
 let xiaoMing=new Ming(444)
+let xiaoMing2=new Ming(444)
+xiaoMing2.hello=22
 // 444 'xiaoMing'
 console.log(xiaoMing.age,xiaoMing.name,xiaoMing);  
 
