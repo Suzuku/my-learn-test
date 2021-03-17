@@ -8,3 +8,6 @@ try {
 }finally{
     console.log(3)
 }
+
+let obj={p:11,j:22}
+
