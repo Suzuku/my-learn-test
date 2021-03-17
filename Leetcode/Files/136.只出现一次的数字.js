@@ -18,7 +18,8 @@ var singleNumber = function (arr) {
             map.set(arr[i], 1);
         }
     }
-    for (let [key, value] of map.entries()) {
+    // map本身就有迭代器接口 所以不用entries()
+    for (let [key, value] of map) {
         if (value === 1) {
             return key;
         }
