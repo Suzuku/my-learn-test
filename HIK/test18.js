@@ -8,4 +8,4 @@ let obj2 = {
     a: 233
 };
 
-console.log(Object.assign(obj2, obj));
+console.log(Object.assign(obj2, obj),obj,obj2);

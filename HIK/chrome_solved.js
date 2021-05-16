@@ -1,3 +1,4 @@
+// 一键solved缺陷
 // 使用方法，将代码拷贝至chrome的console的Snippets上 在缺陷详情页，运行即可，支持定制文案
 
 // 意见
@@ -7,7 +8,7 @@ SUBMIT = false;
 // 引入活动，需要填页面列表里规定的值 引入原因暂不支持定制 后续加上
 ACTIVITY = '编码';
 
-// 所属模块 value和name需要在页面点开来的列表里的option找出来
+// 所属模块 value和name需要通过HTML在页面点开来的列表找到自己项目对应模块的option
 MODULE_VALUE = '012579';
 MODULE_NAME = '楼宇对讲产品/WEB';
 // 解决办法
