@@ -13,7 +13,7 @@ function myDebounce(fn,interval){
     }
 }
 function test(params){
-    console.log(params);
+    console.log(Date.now());
 }
 
 let func=myDebounce(test,1000)
