@@ -8,7 +8,7 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
-      "program": "${workspaceFolder}/test10.js"
+      "program": "${workspaceFolder}/Leetcode/Files/206.反转链表.js"
     }
   ]
 }
