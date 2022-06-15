@@ -22,15 +22,18 @@ var letterCombinations = function (digits) {
     9: ['w', 'x', 'y', 'z'],
   };
   const arr = digits.split('');
-  const tempArr = [];
-  for (let i = 0; i < arr.length; i++) {    
-    if (data[arr[i]] && data[arr[i]].length > 0) {
-      tempArr.push(data[arr[i]]);
-    }
+  const result =[]
+  // 需要递归
+const deepFirstSearch = function (current,index) {
+  // 首先明确递归的出口
+  if(index > digits.length){
+    result.push(current)
+    return 
   }
-  console.log(tempArr);
   
+}
 };
+
 // @lc code=end
 letterCombinations('23')
 letterCombinations('')
